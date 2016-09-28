@@ -69,16 +69,6 @@ public class HystrixMetricsPoller {
     private volatile ScheduledFuture<?> scheduledTask = null;
     private final MetricsAsJsonPollerListener listener;
     
-    /** The local host name value*/
-    private static String hostName = "";
-    static {
-    	try {
-			hostName = InetAddress.getLocalHost().getHostName();
-		} catch (UnknownHostException e) {
-			logger.warn("Unable to resolve local host name. Will use empty string instead");
-		}
-    }
-
     /**
      * Allocate resources to begin polling.
      * <p>
@@ -269,11 +259,7 @@ public class HystrixMetricsPoller {
                     json.writeBooleanField("propertyValue_requestLogEnabled", commandProperties.requestLogEnabled().get());
 
                     json.writeNumberField("reportingHosts", 1); // this will get summed across all instances in a cluster
-                    if (circuitBreaker != null && circuitBreaker.isOpen()) {
-                    	json.writeStringField("openCircuitHostNames", hostName); // pass the host name from where open circuit is being reported
-                    } else {
-                    	json.writeStringField("openCircuitHostNames",""); // add an empty string
-                    }
+
 
                     json.writeEndObject();
                     json.close();
