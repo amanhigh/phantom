@@ -22,8 +22,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.codehaus.jackson.JsonFactory;
-import org.codehaus.jackson.JsonGenerator;
+import com.fasterxml.jackson.core.JsonFactory;
+import com.fasterxml.jackson.core.JsonGenerator;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -58,9 +58,9 @@ import com.flipkart.phantom.task.spi.AbstractHandler;
 @Controller
 public class HystrixMetricsSnapshotController<T extends AbstractHandler> {
 
-    /** 
+    /**
      * instance of aggregator which can be a thread based implementation in case of frequency > 1
-     * or else a stand alone implementation which just returns current metrics from HystrixCommandMetrics 
+     * or else a stand alone implementation which just returns current metrics from HystrixCommandMetrics
      */
     HystrixMetricsAggregator hystrixMetricsAggregator = null;
 
