@@ -10,6 +10,7 @@ API calls in production deployments at Flipkart.
 
 | Release | Date | Description |
 |:------------|:----------------|:------------|
+| Version 2.0.1-hystrix-1.5.3             | Sept 2016      |    Bumped Hystrix Version to 1.5.3
 | Version 2.0.1             | Jul 2016      |    Bug fix in shutdown sequence, zipkin span collector
 | Version 2.0.0             | May 2016      |    Upgrade to Trooper 2.0.0
 | Version 1.4.4             | Mar 2016      |    Bug fixes in Thrift proxy, API interface generalization
